@@ -1,0 +1,99 @@
+<!-- cart -->
+<div class="cart-section mt-150 mb-150">
+    <div class="container">
+        <div class="row">
+            <!-- Existing Cart Table -->
+            <div class="col-lg-8 col-md-12">
+                <div class="cart-table-wrap">
+                    <table class="cart-table">
+                        <thead class="cart-table-head">
+                            <tr class="table-head-row">
+                                <th class="product-remove"></th>
+                                <th class="product-image">Food </th>
+                                <th class="product-name">Name</th>
+                                <th class="product-price">Price</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-total">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of cartItems">
+                                <td>{{ item.productId }}</td>
+                                <td>99Rs</td>
+                                <td>
+                                  <input type="number" [(ngModel)]="item.quantity" (change)="updateQuantity(item.productId, item.quantity)">
+                                </td>
+                                <td>{{ item.quantity * 99 }}Rs</td>
+                              </tr>
+                            <!-- Add more rows for each cart item as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Total Section -->
+            <div class="col-lg-4">
+                <div class="total-section">
+                    <table class="total-table">
+                        <thead class="total-table-head">
+                            <tr class="table-total-row">
+                                <th>Total</th>
+                                <th>Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="total-data">
+                                <td><strong>Subtotal: </strong></td>
+                                <td>500Rs</td>
+                            </tr>
+                            <tr class="total-data">
+                                <td><strong>Shipping: </strong></td>
+                                <td>30Rs</td>
+                            </tr>
+                            <tr class="total-data">
+                                <td><strong>Total: </strong></td>
+                                <td>530Rs</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="cart-buttons">
+                        <a routerLink="cart" class="boxed-btn">Update Cart</a>
+                        <a routerLink="checkout" class="boxed-btn black">Check Out</a>
+                    </div>
+                </div>
+
+                <!-- Order Confirmation Section -->
+                <div class="order-confirmation-section">
+                    <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <tr>
+                            <td width="75%" align="left" bgcolor="#eeeeee">
+                                <p style="font-weight: 800;">Order Confirmation #</p>
+                            </td>
+                            <td width="25%" align="left" bgcolor="#eeeeee">
+                                <p>2345678</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="75%" align="left">
+                                <p style="font-weight: 800;">Name:</p>
+                            </td>
+                            <td width="25%" align="left">
+                                <p>{{data.firstName}} {{data.lastName}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td width="75%" align="left">
+                                <p style="font-weight: 800;">Email</p>
+                            </td>
+                            <td width="25%" align="left">
+                                <p>{{data.email}}</p>
+                            </td>
+                        </tr>
+                        <!-- Add more order confirmation details as needed -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end cart -->
